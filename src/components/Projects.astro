@@ -8,7 +8,7 @@ const projects = [
     tech: ["C", "Memory Management", "Algorithms"],
     github: "https://github.com/t0msly3r/push_swap",
     demo: null,
-    image: "./src/components/projects/push_swap.gif"
+    image: "./public/projects/push_swap.gif"
   },
   {
     title: "VectorStl",
@@ -16,7 +16,7 @@ const projects = [
     tech: ["C++", "OOP"],
     github: "https://github.com/t0msly3r/Stl_vector",
     demo: null,
-    image: "./src/components/projects/Vector-in-C.webp"
+    image: "./public/projects/Vector-in-C.png"
   },
   {
     title: "Philosophers Problem",
@@ -24,7 +24,7 @@ const projects = [
     tech: ["C", "Multithreading", "Synchronization"],
     github: "https://github.com/t0msly3r/philosophers",
     demo: null,
-    image: "./src/components/projects/philo.webp"
+    image: "./public/projects/philo.png"
   },
   {
     title: "Pipe Implementation",
@@ -32,14 +32,14 @@ const projects = [
     tech: ["C", "Inter-process Communication"],
     github: "https://github.com/t0msly3r/Pipex",
     demo: null,
-    image: "./src/components/projects/pipe.webp"
+    image: "./public/projects/pipe.png"
   }
 ];
 ---
 
 <section class="projects" id="projects">
   <div class="container">
-    <h2 class="section-title">Proyectos</h2>
+    <h2 class="section-title">Projects</h2>
     <div class="projects-grid">
       {projects.map(project => (
         <ProjectCard {...project} />
@@ -49,6 +49,14 @@ const projects = [
 </section>
 
 <style>
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+  }
+
   .projects {
     padding: 6rem 0;
     background: rgba(15, 15, 15, 0.5);
