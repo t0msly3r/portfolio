@@ -1,0 +1,70 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+const projects = [
+  {
+    title: "Push Swap",
+    description: "Stack sort algorithm implementation in C to sort data using limited operations and memory.",
+    tech: ["C", "Memory Management", "Algorithms"],
+    github: "https://github.com/t0msly3r/push_swap",
+    demo: null,
+    image: "./src/components/projects/push_swap.gif"
+  },
+  {
+    title: "VectorStl",
+    description: "Custom implementation of a dynamic array (vector) in C++ mimicking STL behavior.",
+    tech: ["C++", "OOP"],
+    github: "https://github.com/t0msly3r/Stl_vector",
+    demo: null,
+    image: "./src/components/projects/Vector-in-C.webp"
+  },
+  {
+    title: "Philosophers Problem",
+    description: "Solution to the Dining Philosophers problem using multithreading and synchronization in C.",
+    tech: ["C", "Multithreading", "Synchronization"],
+    github: "https://github.com/t0msly3r/philosophers",
+    demo: null,
+    image: "./src/components/projects/philo.webp"
+  },
+  {
+    title: "Pipe Implementation",
+    description: "Custom implementation of UNIX pipes in C for inter-process communication.",
+    tech: ["C", "Inter-process Communication"],
+    github: "https://github.com/t0msly3r/Pipex",
+    demo: null,
+    image: "./src/components/projects/pipe.webp"
+  }
+];
+---
+
+<section class="projects" id="projects">
+  <div class="container">
+    <h2 class="section-title">Proyectos</h2>
+    <div class="projects-grid">
+      {projects.map(project => (
+        <ProjectCard {...project} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects {
+    padding: 6rem 0;
+    background: rgba(15, 15, 15, 0.5);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
