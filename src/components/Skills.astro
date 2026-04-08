@@ -1,41 +1,57 @@
 ---
 const skills = {
   languages: [
-    { name: 'C', level: 90 },
-    { name: 'C++', level: 85 },
-    { name: 'Python', level: 70 },
-    { name: 'JavaScript', level: 65 }
+    { name: 'C', level: 90, years: '4y' },
+    { name: 'C++', level: 85, years: '3y' },
+    { name: 'TypeScript', level: 72, years: '1y' },
+    { name: 'Python', level: 65, years: '2y' },
   ],
   tools: [
-    { name: 'Git', level: 80 },
-    { name: 'Linux', level: 75 },
-    { name: 'GDB', level: 70 },
-    { name: 'Make/CMake', level: 75 }
+    { name: 'Git & GitHub', level: 82, years: '4y' },
+    { name: 'Linux / Shell', level: 78, years: '4y' },
+    { name: 'Docker', level: 60, years: '1y' },
+    { name: 'GDB / Valgrind', level: 74, years: '3y' },
+  ],
+  web: [
+    { name: 'Node.js / Express', level: 70, years: '1y' },
+    { name: 'React', level: 65, years: '1y' },
+    { name: 'Prisma / PostgreSQL', level: 62, years: '1y' },
+    { name: 'Astro', level: 60, years: '<1y' },
   ],
   concepts: [
-    'Data structures',
-    'Algorithms',
-    'Oriented Object Programming',
+    'Data Structures & Algorithms',
     'Memory Management',
-    'Debugging and optimization',
-    'Version control',
+    'Multithreading',
+    'REST API Design',
+    'OOP & Design Patterns',
+    'Debugging & Profiling',
+    'Version Control',
+    'Unix IPC',
   ]
 };
 ---
 
 <section class="skills" id="skills">
   <div class="container">
-    <h2 class="section-title">Skills</h2>
-    
-    <div class="skills-grid">
+    <div class="section-header">
+      <span class="section-label">03 / skills</span>
+      <h2 class="section-title">What I Work With</h2>
+    </div>
+
+    <div class="skills-top">
       <div class="skill-category">
-        <h3>Languages</h3>
+        <h3 class="cat-title">
+          <span class="cat-icon">⌨</span> Languages
+        </h3>
         <div class="skill-bars">
           {skills.languages.map(skill => (
             <div class="skill-item">
               <div class="skill-header">
                 <span class="skill-name">{skill.name}</span>
-                <span class="skill-percent">{skill.level}%</span>
+                <span class="skill-meta">
+                  <span class="skill-years">{skill.years}</span>
+                  <span class="skill-percent">{skill.level}%</span>
+                </span>
               </div>
               <div class="skill-bar">
                 <div class="skill-progress" style={`width: ${skill.level}%`}></div>
@@ -46,13 +62,18 @@ const skills = {
       </div>
 
       <div class="skill-category">
-        <h3>Tools</h3>
+        <h3 class="cat-title">
+          <span class="cat-icon">⚙</span> Tools & Env
+        </h3>
         <div class="skill-bars">
           {skills.tools.map(skill => (
             <div class="skill-item">
               <div class="skill-header">
                 <span class="skill-name">{skill.name}</span>
-                <span class="skill-percent">{skill.level}%</span>
+                <span class="skill-meta">
+                  <span class="skill-years">{skill.years}</span>
+                  <span class="skill-percent">{skill.level}%</span>
+                </span>
               </div>
               <div class="skill-bar">
                 <div class="skill-progress" style={`width: ${skill.level}%`}></div>
@@ -62,122 +83,223 @@ const skills = {
         </div>
       </div>
 
-      <div class="skill-category concepts">
-        <h3>Concepts</h3>
-        <div class="concepts-grid">
-          {skills.concepts.map(concept => (
-            <div class="concept-tag">{concept}</div>
+      <div class="skill-category">
+        <h3 class="cat-title">
+          <span class="cat-icon">🌐</span> Web & Backend
+        </h3>
+        <div class="skill-bars">
+          {skills.web.map(skill => (
+            <div class="skill-item">
+              <div class="skill-header">
+                <span class="skill-name">{skill.name}</span>
+                <span class="skill-meta">
+                  <span class="skill-years">{skill.years}</span>
+                  <span class="skill-percent">{skill.level}%</span>
+                </span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style={`width: ${skill.level}%`}></div>
+              </div>
+            </div>
           ))}
         </div>
+      </div>
+    </div>
+
+    <div class="concepts-row">
+      <h3 class="cat-title concepts-title">
+        <span class="cat-icon">💡</span> Concepts & Practices
+      </h3>
+      <div class="concepts-grid">
+        {skills.concepts.map(concept => (
+          <span class="concept-tag">{concept}</span>
+        ))}
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-    text-align: center;
+  .skills {
+    padding: 7rem 0;
     position: relative;
   }
-	.section-title::after {
-		content: '';
-		display: block;
-		width: 60px;
-		height: 4px;
-		background: #3b82f6;
-		margin: 1rem auto 0;
-		border-radius: 2px;
-  }
-  .skills {
-    padding: 6rem 0;
-  }
 
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
+  .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3b82f6;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #e4e4e7;
+    display: inline-block;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, transparent);
+    margin-top: 0.5rem;
+    border-radius: 2px;
+  }
+
+  /* Grid of 3 columns */
+  .skills-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
   }
 
   .skill-category {
-    background: rgba(30, 30, 30, 0.5);
-    padding: 2rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 1.75rem;
+    transition: border-color 0.3s ease;
   }
 
-  .skill-category h3 {
-    font-size: 1.5rem;
+  .skill-category:hover {
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+
+  .cat-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #71717a;
+    text-transform: uppercase;
     margin-bottom: 1.5rem;
-    color: #3b82f6;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cat-icon {
+    font-size: 1rem;
   }
 
   .skill-bars {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .skill-item {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .skill-header {
     display: flex;
     justify-content: space-between;
-    font-size: 0.95rem;
+    align-items: center;
   }
 
   .skill-name {
-    color: #e4e4e7;
+    font-size: 0.95rem;
+    color: #d4d4d8;
     font-weight: 500;
   }
 
+  .skill-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .skill-years {
+    font-size: 0.72rem;
+    color: #52525b;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
   .skill-percent {
-    color: #71717a;
+    font-size: 0.8rem;
+    color: #52525b;
+    min-width: 32px;
+    text-align: right;
   }
 
   .skill-bar {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 99px;
     overflow: hidden;
   }
 
   .skill-progress {
     height: 100%;
-    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-    border-radius: 4px;
-    transition: width 1s ease;
+    background: linear-gradient(90deg, #2563eb, #7c3aed);
+    border-radius: 99px;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Concepts row */
+  .concepts-row {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 1.75rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .concepts-row:hover {
+    border-color: rgba(59, 130, 246, 0.2);
+  }
+
+  .concepts-title {
+    margin-bottom: 1.25rem;
   }
 
   .concepts-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.6rem;
   }
 
   .concept-tag {
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(59, 130, 246, 0.07);
     color: #93c5fd;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-size: 0.9rem;
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 0.35rem 0.85rem;
+    border-radius: 99px;
+    font-size: 0.83rem;
+    font-weight: 500;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    transition: background 0.2s ease, border-color 0.2s ease;
   }
 
-  .concepts {
-    grid-column: 1 / -1;
+  .concept-tag:hover {
+    background: rgba(59, 130, 246, 0.14);
+    border-color: rgba(59, 130, 246, 0.35);
   }
 
-  @media (max-width: 768px) {
-    .skills-grid {
+  @media (max-width: 900px) {
+    .skills-top {
       grid-template-columns: 1fr;
     }
   }
+</style>

@@ -1,27 +1,75 @@
 <section class="about" id="about">
   <div class="container">
-    <h2 class="section-title">About Me</h2>
-    <div class="about-content">
-      <p>
-        I'm a developer passionate about creating robust and efficient software. Although my main specialization is in 
-        <strong>C and C++</strong>, I also have experience with other languages and technologies such as 
-        <strong>Python, JavaScript, and React</strong>, which allows me to adapt easily to different environments and technical requirements.
-      </p>
-      <p>
-        I have a strong focus on systems programming, data structures, and algorithms, as well as writing optimized, high-performance code. 
-        I enjoy tackling complex technical challenges and exploring new techniques that enhance software quality and efficiency.
-      </p>
-      <p>
-        I'm looking for opportunities to apply my skills in real projects and collaborate with development teams where I can continue growing professionally.
-      </p>
+    <div class="section-header">
+      <span class="section-label">01 / about</span>
+      <h2 class="section-title">Who I Am</h2>
+    </div>
+
+    <div class="about-layout">
+      <div class="about-text">
+        <p class="lead">
+          I'm a <strong>FullStack Developer</strong> with a deep foundation in
+          systems programming — the kind that makes you obsess over memory,
+          performance, and clean abstractions.
+        </p>
+        <p>
+          Trained at <strong>42 Malaga</strong> and currently completing a
+          <strong>Web Application Development diploma</strong>, I bridge the gap
+          between low-level thinking and modern web technologies. I write C and
+          C++ when the problem demands it, and reach for TypeScript, React, and
+          Node when shipping products fast matters.
+        </p>
+        <p>
+          I care deeply about code that is not just functional but
+          <em>maintainable</em> — readable by future me, readable by teammates.
+          I gravitate towards well-structured APIs, thoughtful data models, and
+          interfaces that feel effortless to use.
+        </p>
+        <p>
+          Currently looking for opportunities to contribute to real products,
+          collaborate with driven teams, and keep growing as an engineer.
+        </p>
+      </div>
+
+      <div class="about-aside">
+        <div class="stat-card">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Years of Computer Engineering</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">42</span>
+          <span class="stat-label">Malaga — peer-to-peer learning</span>
+        </div>
+        <div class="stat-card highlight">
+          <span class="stat-number">Full</span>
+          <span class="stat-label">Stack · from kernel to UI</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
   .about {
-    padding: 6rem 0;
-    background: rgba(15, 15, 15, 0.5);
+    padding: 7rem 0;
+    background: rgba(10, 10, 10, 0.6);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about::before {
+    content: 'ABOUT';
+    position: absolute;
+    top: 50%;
+    right: -2rem;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 9rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    color: rgba(255, 255, 255, 0.02);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
   }
 
   .container {
@@ -30,38 +78,123 @@
     padding: 0 2rem;
   }
 
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3b82f6;
+    margin-bottom: 0.75rem;
+  }
+
   .section-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    margin-bottom: 3rem;
-    text-align: center;
+    color: #e4e4e7;
     position: relative;
+    display: inline-block;
   }
 
   .section-title::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 4px;
-    background: #3b82f6;
-    margin: 1rem auto 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, transparent);
+    margin-top: 0.5rem;
     border-radius: 2px;
   }
 
-  .about-content {
-    max-width: 800px;
-    margin: 0 auto;
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 5rem;
+    align-items: start;
   }
 
-  .about-content p {
-    font-size: 1.1rem;
+  .about-text p {
+    font-size: 1.05rem;
     color: #a1a1aa;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+    line-height: 1.9;
+    margin-bottom: 1.4rem;
   }
 
-  .about-content strong {
-    color: #3b82f6;
+  .about-text p.lead {
+    font-size: 1.2rem;
+    color: #d4d4d8;
+    line-height: 1.7;
+  }
+
+  .about-text strong {
+    color: #e4e4e7;
     font-weight: 600;
+  }
+
+  .about-text em {
+    color: #93c5fd;
+    font-style: italic;
+  }
+
+  .about-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  .stat-card:hover {
+    border-color: rgba(59, 130, 246, 0.3);
+    background: rgba(59, 130, 246, 0.04);
+  }
+
+  .stat-card.highlight {
+    border-color: rgba(59, 130, 246, 0.25);
+    background: rgba(59, 130, 246, 0.06);
+  }
+
+  .stat-number {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #3b82f6;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: #71717a;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 900px) {
+    .about-layout {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .about-aside {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .stat-card {
+      flex: 1;
+      min-width: 140px;
+    }
   }
 </style>

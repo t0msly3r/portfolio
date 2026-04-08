@@ -1,40 +1,42 @@
 <section class="studies" id="studies">
   <div class="container">
-    <h2 class="section-title">Studies</h2>
+    <div class="section-header">
+      <span class="section-label">04 / studies</span>
+      <h2 class="section-title">Education</h2>
+    </div>
+
     <div class="studies-content">
       <div class="study-item">
-        <h3>Advanced Vocational Diploma in Web Application Development</h3>
-        <p class="study-time">Currently Studying</p>
+        <div class="study-dot"></div>
+        <div class="study-body">
+          <span class="study-time">Currently Studying</span>
+          <h3>Advanced Vocational Diploma in Web Application Development</h3>
+        </div>
       </div>
 
       <div class="study-item">
-        <h3>42 Malaga Student</h3>
-        <p class="study-time">2024 — Present</p>
+        <div class="study-dot"></div>
+        <div class="study-body">
+          <span class="study-time">2024 — Present</span>
+          <h3>42 Malaga — Peer-to-peer learning campus</h3>
+        </div>
       </div>
 
       <div class="study-item">
-        <h3>3 Years of Computer Engineering</h3>
-        <p class="study-time">2021 — 2023</p>
+        <div class="study-dot"></div>
+        <div class="study-body">
+          <span class="study-time">2021 — 2023</span>
+          <h3>3 Years of Computer Engineering</h3>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-	h3 {
-		color: #a1a1aa;
-	}
-
-	.study-time {
-		font-size: 0.95rem;
-		color: #71717a;
-		margin: 0.5rem 0 0 0;
-		font-weight: 400;
-	}
-
-  .studies{
-    padding: 6rem 0;
-    background: rgba(15, 15, 15, 0.5);
+  .studies {
+    padding: 7rem 0;
+    background: rgba(10, 10, 10, 0.6);
   }
 
   .container {
@@ -43,42 +45,110 @@
     padding: 0 2rem;
   }
 
+  .section-header {
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3b82f6;
+    margin-bottom: 0.75rem;
+  }
+
   .section-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
-    margin-bottom: 3rem;
-    text-align: center;
-    position: relative;
+    color: #e4e4e7;
+    display: inline-block;
   }
 
   .section-title::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 4px;
-    background: #3b82f6;
-    margin: 1rem auto 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, transparent);
+    margin-top: 0.5rem;
     border-radius: 2px;
   }
 
   .studies-content {
-		max-width: 800px;
-		margin: 0 auto;
-		font-size: 1.2rem;
-		color: #a1a1aa;
-		line-height: 1.8;
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
 
-	.study-item {
-		padding: 1rem;
-		border-left: 2px solid #3b82f6;
-		padding-left: 1.5rem;
-	}
+  /* Vertical line */
+  .studies-content::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(to bottom, #3b82f6, rgba(59, 130, 246, 0.1));
+  }
 
-	.study-item h3 {
-		margin: 0 0 0.25rem 0;
-	}
+  .study-item {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+    position: relative;
+  }
+
+  .study-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #0a0a0a;
+    border: 2px solid #3b82f6;
+    flex-shrink: 0;
+    margin-top: 4px;
+    position: relative;
+    z-index: 1;
+    transition: background 0.3s ease;
+  }
+
+  .study-item:hover .study-dot {
+    background: #3b82f6;
+  }
+
+  .study-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.25rem 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    flex: 1;
+    transition: border-color 0.3s ease, background 0.3s ease;
+  }
+
+  .study-item:hover .study-body {
+    border-color: rgba(59, 130, 246, 0.25);
+    background: rgba(59, 130, 246, 0.04);
+  }
+
+  .study-time {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #3b82f6;
+  }
+
+  .study-body h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #d4d4d8;
+    line-height: 1.4;
+  }
 </style>
